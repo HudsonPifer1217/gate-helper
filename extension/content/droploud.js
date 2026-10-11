@@ -37,7 +37,12 @@
 
     const email = pane.querySelector('input[type=email]');
     const scConnect = buttonByText(/connect soundcloud/i, pane);
-    if (scConnect) {
+    const doneBtn = buttonByText(/i[’']?m done|skip/i, pane);
+    if (/on droploud/i.test(title) && doneBtn) {
+      // "Follow <artist> on Droploud" is optional (Droploud says you can skip it).
+      await jitter(300, 700);
+      doneBtn.click();
+    } else if (scConnect) {
       // Droploud runs the SoundCloud actions itself after you connect; it wants a comment first.
       const box = pane.querySelector('textarea, input[type=text]');
       if (box && !box.value) setValue(box, s.comment || 'fire');
