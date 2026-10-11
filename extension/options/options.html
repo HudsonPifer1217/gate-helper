@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Gate Helper Settings</title>
+  <style>
+    :root { color-scheme: dark; }
+    body { font: 14px/1.5 -apple-system, system-ui, sans-serif; background: #0d0d0d; color: #eee; margin: 0; }
+    main { max-width: 520px; margin: 40px auto; padding: 0 16px; }
+    h1 { font-size: 22px; margin: 0 0 4px; }
+    p.sub { color: #999; margin: 0 0 24px; }
+    fieldset { border: 1px solid #2a2a2a; border-radius: 12px; padding: 16px; margin: 0 0 16px; }
+    legend { padding: 0 6px; color: #c6ff3d; font-weight: 600; }
+    label.field { display: block; margin-bottom: 12px; }
+    label.field span { display: block; color: #aaa; font-size: 12px; margin-bottom: 4px; }
+    input[type=text], input[type=email] { width: 100%; box-sizing: border-box; padding: 9px 10px; border-radius: 8px;
+      border: 1px solid #333; background: #171717; color: #eee; font: inherit; }
+    label.check { display: flex; gap: 8px; align-items: center; margin: 6px 0; }
+    button { font: 600 14px system-ui; border: 0; border-radius: 8px; padding: 10px 18px; background: #c6ff3d; color: #111; cursor: pointer; }
+    #saved { margin-left: 10px; color: #8be28b; opacity: 0; transition: opacity .2s; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>⚡ Gate Helper</h1>
+  <p class="sub">Filled into every Hypeddit / Droploud gate. Stored only in your Chrome profile.</p>
+
+  <fieldset>
+    <legend>You</legend>
+    <label class="field"><span>Name</span><input id="name" type="text" autocomplete="name"></label>
+    <label class="field"><span>Email</span><input id="email" type="email" autocomplete="email"></label>
+    <label class="field"><span>SoundCloud comment</span><input id="comment" type="text"></label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Speed</legend>
+    <label class="check"><input type="checkbox" id="quickMode"> Quick mode: just open each popup and close it (no actual follow/like/comment)</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>SoundCloud actions (when Quick mode is off)</legend>
+    <label class="check"><input type="checkbox" id="sc.follow"> Follow</label>
+    <label class="check"><input type="checkbox" id="sc.like"> Like</label>
+    <label class="check"><input type="checkbox" id="sc.repost"> Repost</label>
+    <label class="check"><input type="checkbox" id="sc.comment"> Comment</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Other</legend>
+    <label class="check"><input type="checkbox" id="igFollow"> Follow on Instagram when asked</label>
+    <label class="check"><input type="checkbox" id="ytSubscribe"> Subscribe on YouTube when asked</label>
+    <label class="check"><input type="checkbox" id="autoStart"> Start automatically when a gate page opens</label>
+  </fieldset>
+
+  <button id="save">Save</button><span id="saved">Saved ✓</span>
+</main>
+<script src="options.js"></script>
+</body>
+</html>

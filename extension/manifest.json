@@ -1,0 +1,73 @@
+{
+  "manifest_version": 3,
+  "name": "Gate Helper",
+  "version": "0.2.0",
+  "description": "One-click free downloads from Hypeddit and Droploud gates.",
+  "permissions": [
+    "storage",
+    "downloads",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://hypeddit.com/*",
+    "https://*.hypeddit.com/*",
+    "https://droploud.com/*",
+    "https://soundcloud.com/*",
+    "https://www.instagram.com/*",
+    "https://www.youtube.com/*",
+    "https://www.dropbox.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options/options.html",
+  "action": {
+    "default_title": "Gate Helper settings"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://hypeddit.com/*",
+        "https://*.hypeddit.com/*",
+        "https://droploud.com/*"
+      ],
+      "js": [
+        "content/page-hook.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://hypeddit.com/*",
+        "https://*.hypeddit.com/*"
+      ],
+      "js": [
+        "content/common.js",
+        "content/hypeddit.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://droploud.com/*"
+      ],
+      "js": [
+        "content/common.js",
+        "content/droploud.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://soundcloud.com/*",
+        "https://www.instagram.com/*",
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "content/popup-actions.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
