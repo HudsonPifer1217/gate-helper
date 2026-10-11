@@ -1,9 +1,12 @@
 #!/bin/zsh
 # One-time setup: Chrome extensions can only save inside ~/Downloads, so the
 # extension saves to ~/Downloads/GateDrops, which we link to your music folder.
+#
+#   ./setup.sh                          -> ~/Music/ALL MUSIC/Free Downloads
+#   ./setup.sh "$HOME/Music/DJ/Free"    -> any folder you choose
 set -euo pipefail
 
-TARGET="$HOME/Music/ALL MUSIC/Free Downloads"
+TARGET="${1:-$HOME/Music/ALL MUSIC/Free Downloads}"
 LINK="$HOME/Downloads/GateDrops"
 
 mkdir -p "$TARGET"
