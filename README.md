@@ -2,7 +2,7 @@
 
 # Gate Helper
 
-A Chrome extension for DJs that clicks through **Hypeddit** and **Droploud** free-download gates for you.
+A Chrome extension for DJs that clicks through **Hypeddit**, **Droploud** and **GateRush** free-download gates for you.
 
 Open a gate, press **Get it**, and it:
 
@@ -31,6 +31,14 @@ What used to be a dozen clicks per track becomes one or two.
 | Instagram follow | Opens the link briefly, then clicks "I did it →" |
 | "Connect SoundCloud" | Types your comment, then highlights **Connect SoundCloud** for you to click. Droploud then follows/likes/reposts/comments **for real** from your account. That's how Droploud works, so it can't be skipped. |
 | "Repost on SoundCloud" (verified) | Droploud checks that the repost really happened, so Gate Helper opens the track and **actually reposts it**, then clicks "I reposted, verify". If it can't, it tells you to repost in that window and close it, and it verifies for you. |
+| Download | Clicks it |
+
+### GateRush
+| Step | What Gate Helper does |
+|---|---|
+| Name & email | Fills them in and clicks "Save & continue" |
+| Connect SoundCloud | Types your comment, then highlights **Connect SoundCloud** for you to click (login popups need a real click). GateRush then does the SoundCloud actions from your account. |
+| Instagram / Spotify follow | Opens the profile briefly and closes it, waits out GateRush's 5-second lock, then clicks **Done** |
 | Download | Clicks it |
 
 > **Quick mode** (on by default) only opens and closes popups; Hypeddit only checks that you clicked each button. Turn it off in settings if you'd rather Gate Helper actually follow, like, repost and comment on SoundCloud for every gate.
@@ -85,7 +93,7 @@ Be logged in to **SoundCloud** in the same Chrome profile. Droploud's repost ste
 
 ## Use it
 
-1. Open any `hypeddit.com/...` or `droploud.com/track/...` gate.
+1. Open any `hypeddit.com/...`, `droploud.com/track/...` or `gaterush.me/...` gate.
 2. A **⚡ Gate Helper** panel appears bottom-right. Press **Get it**.
 3. Watch the log. If it says **"Your turn"**, click the button it highlights. That's only for login popups (Connect SoundCloud / Spotify), and after the first time they usually go through by themselves.
 4. If a **CAPTCHA** appears, solve it; Gate Helper waits and then continues.
@@ -114,7 +122,7 @@ Be logged in to **SoundCloud** in the same Chrome profile. Droploud's repost ste
 
 ## Privacy
 - Your name, email and comment are stored only in your Chrome profile (`chrome.storage.sync`). Nothing is sent anywhere except to the gate you're unlocking.
-- The extension only runs on hypeddit.com, droploud.com, and the SoundCloud / Instagram / YouTube popups a gate opens.
+- The extension only runs on hypeddit.com, droploud.com, gaterush.me, and the SoundCloud / Instagram / YouTube popups a gate opens.
 - No passwords are stored. It uses the accounts you're already logged into.
 
 ---
@@ -130,6 +138,7 @@ extension/
 │   ├── common.js            Shared helpers + the on-page ⚡ panel
 │   ├── hypeddit.js          Hypeddit steps (email, sc, ig, yt, sp, download)
 │   ├── droploud.js          Droploud step cards (open link → "I did it" / verify)
+│   ├── gaterush.js          GateRush steps (email, Connect SoundCloud, follow → Done)
 │   └── popup-actions.js     Inside SoundCloud/Instagram/YouTube popups: follow, like, repost, comment
 └── options/                 Settings page
 ├── icons/                   Toolbar/extension icons (regenerate: python3 tools/make_icons.py)
@@ -138,4 +147,4 @@ setup.sh                     Links ~/Downloads/GateDrops to your music folder
 
 Each gate site has its own adapter file, so when a site changes its layout usually only that one file needs fixing.
 
-Built for personal use. Gate sites can change at any time, and this isn't affiliated with Hypeddit, Droploud or SoundCloud.
+Built for personal use. Gate sites can change at any time, and this isn't affiliated with Hypeddit, Droploud, GateRush or SoundCloud.

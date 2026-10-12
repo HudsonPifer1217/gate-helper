@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Gate Helper",
-  "version": "0.3.0",
-  "description": "One-click free downloads from Hypeddit and Droploud gates.",
+  "version": "0.4.0",
+  "description": "One-click free downloads from Hypeddit, Droploud and GateRush gates.",
   "permissions": [
     "storage",
     "downloads",
@@ -12,6 +12,7 @@
     "https://hypeddit.com/*",
     "https://*.hypeddit.com/*",
     "https://droploud.com/*",
+    "https://gaterush.me/*",
     "https://soundcloud.com/*",
     "https://www.instagram.com/*",
     "https://www.youtube.com/*",
@@ -35,7 +36,8 @@
       "matches": [
         "https://hypeddit.com/*",
         "https://*.hypeddit.com/*",
-        "https://droploud.com/*"
+        "https://droploud.com/*",
+        "https://gaterush.me/*"
       ],
       "js": [
         "content/page-hook.js"
@@ -61,6 +63,16 @@
       "js": [
         "content/common.js",
         "content/droploud.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://gaterush.me/*"
+      ],
+      "js": [
+        "content/common.js",
+        "content/gaterush.js"
       ],
       "run_at": "document_idle"
     },
