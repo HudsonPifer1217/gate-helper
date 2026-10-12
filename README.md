@@ -1,4 +1,6 @@
-# ⚡ Gate Helper
+<img src="extension/icons/icon128.png" width="96" alt="Gate Helper logo">
+
+# Gate Helper
 
 A Chrome extension for DJs that clicks through **Hypeddit** and **Droploud** free-download gates for you.
 
@@ -130,6 +132,7 @@ extension/
 │   ├── droploud.js          Droploud step cards (open link → "I did it" / verify)
 │   └── popup-actions.js     Inside SoundCloud/Instagram/YouTube popups: follow, like, repost, comment
 └── options/                 Settings page
+├── icons/                   Toolbar/extension icons (regenerate: python3 tools/make_icons.py)
 setup.sh                     Links ~/Downloads/GateDrops to your music folder
 ```
 
